@@ -11,4 +11,5 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 libraryDependencies ++= Seq(
   "com.googlecode" % "difflib" % "1.2.1" from "https://java-diff-utils.googlecode.com/files/diffutils-1.2.1.jar"
 , "net.databinder.dispatch" %% "dispatch-core" % "0.11.0"
+, "org.slf4j" % "slf4j-simple" % "1.6.4"
 )
