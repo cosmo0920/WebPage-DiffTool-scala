@@ -8,11 +8,11 @@ object getPageUrlConst {
 
 object Application {
 
-  def run {
+  def run = {
     import dispatch._, Defaults._
-    val req = Http(url(getPageUrlConst.pageUrl) OK as.String)
-    for (c <- req)
-      println(c)
+    val req = Http(host(getPageUrlConst.pageUrl).secure OK as.String).apply()
+    Http.shutdown
+    req
   }
 
   def main(args: Array[String]) {
@@ -24,6 +24,6 @@ object Application {
 
     for (out <- patch.getDeltas)
       println(out)
-    run
+    println(run)
   }
 }
