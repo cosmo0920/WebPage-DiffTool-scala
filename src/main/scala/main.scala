@@ -18,7 +18,6 @@ object Application {
 
     val original = Option(fileToLines(downloadDir ++ s"${filename}_$ydate.html"))
     val revised = fileToLines(downloadDir ++ s"${filename}_$fdate.html")
-    val jl = new java.util.ArrayList[String]()
 
     original match {
       case Some(value) => {
