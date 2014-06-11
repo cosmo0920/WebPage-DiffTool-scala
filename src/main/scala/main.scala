@@ -4,7 +4,7 @@ import scala.io._
 import java.io.PrintWriter
 import java.nio.charset.CodingErrorAction
 import com.github.nscala_time.time.Imports._
-import diffutils.App._
+import diffutils.Utility._
 
 object getPageUrlConst {
   import com.typesafe.config._

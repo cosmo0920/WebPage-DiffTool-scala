@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-public class App {
+public class Utility {
     public static List<String> fileToLines(String filename) {
         List<String> lines = new LinkedList<String>();
         String line = "";
