@@ -16,12 +16,19 @@ object Application {
 
     page.writePageToFile(downloadDir ++ s"${filename}_$fdate.html", page.getPage)
 
-    val original = fileToLines(downloadDir ++ s"${filename}_$ydate.html")
+    val original = Option(fileToLines(downloadDir ++ s"${filename}_$ydate.html"))
     val revised = fileToLines(downloadDir ++ s"${filename}_$fdate.html")
+    val jl = new java.util.ArrayList[String]()
 
-    val patch = DiffUtils.diff(original, revised)
+    original match {
+      case Some(value) => {
+        if (value.isEmpty) return
 
-    for (out <- patch.getDeltas)
-      println(out)
+        val patch = DiffUtils.diff(value, revised)
+        for (out <- patch.getDeltas)
+          println(out)
+      }
+      case None => println("cannot execute diff.")
+    }
   }
 }
