@@ -7,7 +7,10 @@ import com.github.nscala_time.time.Imports._
 import diffutils.App._
 
 object getPageUrlConst {
-  val pageUrl = "example.com"
+  import com.typesafe.config._
+  val config = ConfigFactory.load()
+  val pageUrl = config.getString("page.url")
+  val filename = config.getString("page.filename")
 }
 
 object Application {
@@ -35,11 +38,12 @@ object Application {
     val fdate = date.toString("yyyyMMdd")
     val ydate = yesterday.toString("yyyyMMdd")
     val downloadDir = "tmp/"
+    val filename = getPageUrlConst.filename
 
-    writeFile(downloadDir ++ s"piyo_$fdate.html", run)
+    writeFile(downloadDir ++ s"${filename}_$fdate.html", run)
 
-    val original = fileToLines(downloadDir ++ s"piyo_$ydate.html")
-    val revised = fileToLines(downloadDir ++ s"piyo_$fdate.html")
+    val original = fileToLines(downloadDir ++ s"${filename}_$ydate.html")
+    val revised = fileToLines(downloadDir ++ s"${filename}_$fdate.html")
 
     val patch = DiffUtils.diff(original, revised)
 

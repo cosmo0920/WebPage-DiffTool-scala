@@ -1,0 +1,4 @@
+page {
+  url = "example.com"
+  filename = "example_output"
+}

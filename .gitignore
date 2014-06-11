@@ -17,3 +17,4 @@ public/picture
 /RUNNING_PID
 /.settings
 tmp/
+src/main/resources/application.conf
