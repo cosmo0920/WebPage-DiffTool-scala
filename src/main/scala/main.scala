@@ -15,7 +15,7 @@ object getPageUrlConst {
 
 object Application {
 
-  def run: String = {
+  def getPage: String = {
     import dispatch._, Defaults._
     implicit val codec = Codec("UTF-8")
     codec.onMalformedInput(CodingErrorAction.REPLACE)
@@ -40,7 +40,7 @@ object Application {
     val downloadDir = "tmp/"
     val filename = getPageUrlConst.filename
 
-    writeFile(downloadDir ++ s"${filename}_$fdate.html", run)
+    writeFile(downloadDir ++ s"${filename}_$fdate.html", getPage)
 
     val original = fileToLines(downloadDir ++ s"${filename}_$ydate.html")
     val revised = fileToLines(downloadDir ++ s"${filename}_$fdate.html")
