@@ -1,4 +1,4 @@
-name := "diff-guideline"
+name := "webpage-diff-tool"
 
 version := "0.1-SNAPSHOT"
 
@@ -15,3 +15,5 @@ libraryDependencies ++= Seq(
 , "com.github.nscala-time" %% "nscala-time" % "1.2.0"
 , "com.typesafe" % "config" % "1.2.1"
 )
+
+assemblySettings
