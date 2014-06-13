@@ -21,9 +21,14 @@ object Application {
 
     original match {
       case Some(value) => {
-        if (value.isEmpty) return
-
+        if (value.isEmpty) {
+          println("Please re-run tomorrow.")
+          return
+        }
         val patch = DiffUtils.diff(value, revised)
+
+        if ( patch.getDeltas.size == 0 )
+          println("No diff detected.")
         for (out <- patch.getDeltas)
           println(out)
       }
