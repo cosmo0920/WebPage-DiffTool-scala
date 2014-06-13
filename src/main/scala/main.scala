@@ -27,7 +27,7 @@ object Application {
         }
         val patch = DiffUtils.diff(value, revised)
 
-        if ( patch.getDeltas.size == 0 )
+        if (patch.getDeltas.size == 0)
           println("No diff detected.")
         for (out <- patch.getDeltas)
           println(out)
